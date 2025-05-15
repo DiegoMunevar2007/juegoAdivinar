@@ -1,0 +1,24 @@
+<div class="container-fluid">
+  <div class="col">
+    <div class="row">
+      <h1 class="text-center">Juego de Adivinanza</h1>
+    </div>
+    <div class="row">
+      <div class="col" *ngIf="numeroIntentos>0 ">
+          <h3 *ngIf="estado === 1">Muy alto</h3>
+          <h3 *ngIf="estado === -1">Muy bajo</h3>
+          <h3 *ngIf="estado === 0">Correcto</h3>
+        </div>
+        <div class="col" *ngIf="numeroIntentos === 0 && estado !== 0">
+          <h3>¡Perdiste!</h3>
+          <h3>El número era {{numeroGanador}}</h3>
+      </div>
+    </div>
+    <div class="row">
+      <app-formNumero (numeroSeleccionado)="evaluar($event)"></app-formNumero>
+    </div>
+    <div class="row text-center">
+      <h3 class="text-center">Intentos: {{numeroIntentos}}</h3>
+    </div>
+  </div>
+</div>
